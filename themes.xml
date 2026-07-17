@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.SysDownloader" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/bg_black</item>
+        <item name="colorPrimary">@color/term_green</item>
+        <item name="colorPrimaryDark">@color/bg_black</item>
+        <item name="colorAccent">@color/term_cyan</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/bg_black</item>
+    </style>
+</resources>

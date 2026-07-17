@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_black"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYS.DOWNLOADER"
+        android:textColor="@color/term_green"
+        android:textSize="22sp"
+        android:fontFamily="monospace"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="yt-dlp :: android runtime"
+        android:textColor="@color/term_dim"
+        android:fontFamily="monospace"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/urlInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="paste video / playlist URL"
+        android:textColorHint="@color/term_dim"
+        android:textColor="@color/term_green"
+        android:background="@color/panel_dark"
+        android:fontFamily="monospace"
+        android:inputType="textUri"
+        android:padding="12dp" />
+
+    <RadioGroup
+        android:id="@+id/modeGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp">
+
+        <RadioButton
+            android:id="@+id/radioVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Video"
+            android:textColor="@color/term_green"
+            android:fontFamily="monospace"
+            android:checked="true"
+            android:buttonTint="@color/term_green" />
+
+        <RadioButton
+            android:id="@+id/radioAudio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Audio (mp3)"
+            android:textColor="@color/term_green"
+            android:fontFamily="monospace"
+            android:buttonTint="@color/term_green" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/playlistCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Download as playlist"
+        android:textColor="@color/term_cyan"
+        android:fontFamily="monospace"
+        android:buttonTint="@color/term_cyan"
+        android:layout_marginTop="4dp" />
+
+    <Spinner
+        android:id="@+id/qualitySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/panel_dark" />
+
+    <Button
+        android:id="@+id/downloadButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="[ START DOWNLOAD ]"
+        android:textColor="@color/bg_black"
+        android:backgroundTint="@color/term_green"
+        android:fontFamily="monospace"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="@color/term_green" />
+
+    <TextView
+        android:id="@+id/statusLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="idle"
+        android:textColor="@color/term_yellow"
+        android:fontFamily="monospace"
+        android:textSize="12sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp"
+        android:background="@color/panel_dark">
+
+        <TextView
+            android:id="@+id/logConsole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$ ready\n"
+            android:textColor="@color/term_green"
+            android:fontFamily="monospace"
+            android:textSize="11sp"
+            android:padding="10dp" />
+    </ScrollView>
+
+</LinearLayout>
