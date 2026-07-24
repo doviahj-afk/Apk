@@ -36,6 +36,17 @@
         android:inputType="textUri"
         android:padding="12dp" />
 
+    <Button
+        android:id="@+id/browseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="[ BROWSE WEB ]"
+        android:textColor="@color/bg_black"
+        android:backgroundTint="@color/term_cyan"
+        android:fontFamily="monospace"
+        android:textStyle="bold" />
+
     <RadioGroup
         android:id="@+id/modeGroup"
         android:layout_width="wrap_content"

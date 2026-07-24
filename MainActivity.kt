@@ -1,9 +1,11 @@
 package com.sysdownloader.app
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.sysdownloader.app.databinding.ActivityMainBinding
 import com.yausername.ffmpeg.FFmpeg
@@ -22,6 +24,18 @@ class MainActivity : AppCompatActivity() {
 
     private val qualityOptions = listOf("Best", "1080p", "720p", "480p")
 
+    private val browserLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val url = result.data?.getStringExtra(BrowserActivity.EXTRA_URL)
+            if (!url.isNullOrBlank()) {
+                binding.urlInput.setText(url)
+                log("$ picked up from browser: $url")
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -35,6 +49,12 @@ class MainActivity : AppCompatActivity() {
         initRuntime()
 
         binding.downloadButton.setOnClickListener { startDownload() }
+        binding.browseButton.setOnClickListener {
+            val intent = Intent(this, BrowserActivity::class.java)
+            val current = binding.urlInput.text.toString().trim()
+            if (current.isNotEmpty()) intent.putExtra(BrowserActivity.EXTRA_URL, current)
+            browserLauncher.launch(intent)
+        }
     }
 
     private fun initRuntime() {

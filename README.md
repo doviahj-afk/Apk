@@ -76,6 +76,23 @@ SysDownloaderApp/
 └── .github/workflows/build.yml   # builds the APK on every push
 ```
 
+## Web browsing (new)
+
+There's now a `[ BROWSE WEB ]` button on the main screen that opens a small
+built-in browser (`BrowserActivity` — plain `WebView` with an address bar,
+back/forward buttons, and a `[ USE THIS PAGE ]` button). Navigate to
+wherever the video/page lives, tap **USE THIS PAGE**, and the current URL
+is copied straight into the downloader's URL field — no switching apps or
+copy-pasting.
+
+It's intentionally simple: it doesn't scrape pages for embedded video
+links, bypass logins/paywalls/DRM, or auto-download anything in the
+background. It just saves you a step for finding the URL. Whether yt-dlp
+can actually pull a given page down still depends on yt-dlp's site support,
+and whether you're *allowed* to depends on that site's terms of service and
+copyright law — that part's on you. Only download things you own or have
+the rights/permission to save.
+
 ## Notes
 
 - The workflow installs Gradle directly on the runner (`gradle/actions/setup-gradle`)
