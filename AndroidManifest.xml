@@ -19,5 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".BrowserActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SysDownloader"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
     </application>
 </manifest>
